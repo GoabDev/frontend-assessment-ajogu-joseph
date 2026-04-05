@@ -13,12 +13,20 @@ export default function NotFound() {
         This demo intentionally treats missing products as a first-class route state
         instead of leaving users on a broken view.
       </p>
-      <Link
-        href="/products"
-        className="rounded-full bg-[var(--accent)] px-5 py-3 text-sm font-medium text-[var(--accent-foreground)] transition hover:opacity-90"
-      >
-        Return to catalog
-      </Link>
+      <div className="flex flex-wrap gap-3">
+        <Link
+          href="/products"
+          className="rounded-full bg-[var(--accent)] px-5 py-3 text-sm font-medium text-white transition hover:opacity-90"
+        >
+          Return to catalog
+        </Link>
+        <Link
+          href="/"
+          className="rounded-full bg-[var(--surface)] px-5 py-3 text-sm font-medium text-[var(--foreground)] shadow-[0_16px_34px_-24px_rgba(30,36,48,0.28)] transition hover:-translate-y-0.5"
+        >
+          Back home
+        </Link>
+      </div>
     </main>
   );
 }

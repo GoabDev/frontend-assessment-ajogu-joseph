@@ -146,7 +146,7 @@ export default async function ProductDetailPage({
           </div>
           <Link
             href="/products"
-            className="inline-flex rounded-full bg-[var(--accent)] px-5 py-3 text-sm font-medium text-[var(--accent-foreground)] transition hover:opacity-90"
+            className="inline-flex rounded-full bg-[var(--accent)] px-5 py-3 text-sm font-medium text-white transition hover:opacity-90"
           >
             Back to products
           </Link>

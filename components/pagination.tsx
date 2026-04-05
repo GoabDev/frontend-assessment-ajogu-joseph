@@ -57,7 +57,7 @@ export function Pagination({
         className={`rounded-full px-4 py-2 text-sm font-medium transition ${
           currentPage === 1
             ? "pointer-events-none bg-[var(--surface-2)] text-[var(--muted-foreground)]"
-            : "bg-[var(--accent)] text-[var(--accent-foreground)] hover:opacity-90"
+            : "bg-[var(--accent)] text-white hover:opacity-90"
         }`}
       >
         Previous
@@ -70,8 +70,8 @@ export function Pagination({
             aria-current={page === currentPage ? "page" : undefined}
             className={`rounded-full px-4 py-2 text-sm font-medium transition ${
               page === currentPage
-                ? "bg-[var(--accent)] text-[var(--accent-foreground)]"
-                : "bg-[var(--surface-2)] text-[var(--foreground)] hover:opacity-80"
+                ? "bg-[var(--accent)] text-white"
+                : "bg-[var(--surface-2)] !text-[var(--foreground)] hover:opacity-80"
             }`}
           >
             {page}
@@ -84,7 +84,7 @@ export function Pagination({
         className={`rounded-full px-4 py-2 text-sm font-medium transition ${
           currentPage === totalPages
             ? "pointer-events-none bg-[var(--surface-2)] text-[var(--muted-foreground)]"
-            : "bg-[var(--accent)] text-[var(--accent-foreground)] hover:opacity-90"
+            : "bg-[var(--accent)] text-white hover:opacity-90"
         }`}
       >
         Next

@@ -84,7 +84,7 @@ export function SearchFilters({
   return (
     <section className="rounded-[2rem] bg-[var(--surface)] p-5 shadow-[0_24px_60px_-38px_rgba(30,36,48,0.24)]">
       <form
-        className="flex flex-col gap-4 lg:flex-row lg:items-end"
+        className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-end"
         onSubmit={(event) => {
           event.preventDefault();
           navigate({ query: query.trim(), category: initialCategory });
@@ -94,23 +94,12 @@ export function SearchFilters({
           <span className="mb-2 block text-sm font-medium text-[var(--foreground)]">
             Search products
           </span>
-          <div className="flex gap-3">
-            <input
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="Try fragrance, furniture, phone..."
-              className="min-w-0 flex-1 rounded-full border border-[var(--border)] bg-[var(--background)] px-4 py-3 text-sm text-[var(--foreground)] outline-none transition focus:border-[var(--accent)]"
-            />
-            <button
-              type="submit"
-              className="rounded-full bg-[var(--accent)] px-5 py-3 text-sm font-medium text-[var(--accent-foreground)] transition hover:opacity-90"
-            >
-              Search
-            </button>
-          </div>
-          <span className="mt-2 block text-xs text-[var(--muted-foreground)]">
-            Search updates after 400ms so the URL stays shareable without pushing on every keystroke.
-          </span>
+          <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Try fragrance, furniture, phone..."
+            className="min-w-0 w-full rounded-full border border-[var(--border)] bg-[var(--background)] px-4 py-3 text-sm text-[var(--foreground)] outline-none transition focus:border-[var(--accent)]"
+          />
         </label>
         <label className="lg:w-72">
           <span className="mb-2 block text-sm font-medium text-[var(--foreground)]">
@@ -136,7 +125,9 @@ export function SearchFilters({
         </label>
       </form>
       <div className="mt-3 min-h-6 text-sm text-[var(--muted-foreground)]">
-        {isPending ? "Updating results..." : "Search and filters sync directly to the URL."}
+        {isPending
+          ? "Updating results..."
+          : "Search updates automatically after 400ms, and filters stay synced to the URL."}
       </div>
     </section>
   );
