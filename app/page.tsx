@@ -1,65 +1,66 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Home",
+};
+
+const principles = [
+  "Typed server-side data layer",
+  "URL-based filters and pagination",
+  "Route metadata and not-found handling",
+  "Optimized images and streaming states",
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center gap-10 px-6 py-12 lg:px-10 lg:py-20">
+      <section className="grid gap-8 overflow-hidden rounded-[2.75rem] bg-[#223a5c] px-6 py-10 text-white shadow-[0_30px_80px_-48px_rgba(34,58,92,0.65)] lg:grid-cols-[1.15fr_0.85fr] lg:px-10 lg:py-14">
+        <div className="space-y-6">
+          <p className="text-sm font-semibold tracking-[0.3em] text-[#ffd39d] uppercase">
+            Next.js Product Explorer
           </p>
+          <h1 className="max-w-3xl font-[family-name:var(--font-display)] text-5xl leading-none tracking-tight sm:text-6xl">
+            Small scope. High signal. Clean engineering.
+          </h1>
+          <p className="max-w-2xl text-base leading-7 text-slate-200 sm:text-lg">
+            This project stays deliberately compact so the code quality is the story:
+            server-rendered data, shareable URL state, focused route handling, and
+            performance-aware UI decisions.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/products"
+              className="rounded-full bg-[var(--accent)] px-5 py-3 text-sm font-semibold text-[var(--accent-foreground)] transition hover:opacity-90"
+            >
+              Explore products
+            </Link>
+            <a
+              href="https://dummyjson.com/docs/products"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/16"
+            >
+              View API source
+            </a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="rounded-[2.25rem] bg-white/10 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]">
+          <p className="text-sm font-semibold tracking-[0.22em] text-slate-200 uppercase">
+            What this demo emphasizes
+          </p>
+          <div className="mt-6 grid gap-3">
+            {principles.map((principle) => (
+              <div
+                key={principle}
+                className="rounded-[1.5rem] bg-white/10 px-4 py-4 text-sm text-white"
+              >
+                {principle}
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
